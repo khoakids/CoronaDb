@@ -4,5 +4,18 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRN.BAL.Implement\CRN.BAL.Implement.csproj" />
+    <ProjectReference Include="..\CRN.BAL.Interface\CRN.BAL.Interface.csproj" />
+    <ProjectReference Include="..\CRN.DAL.Implement\CRN.DAL.Implement.csproj" />
+    <ProjectReference Include="..\CRN.DAL.Interface\CRN.DAL.Interface.csproj" />
+  </ItemGroup>
+
 
 </Project>
