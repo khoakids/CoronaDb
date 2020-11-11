@@ -6,6 +6,7 @@ using CRN.BAL.Interface;
 using CRN.Domain.Request;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 
 namespace CRN.API.Controllers
 {
@@ -25,12 +26,20 @@ namespace CRN.API.Controllers
             var result = await patientService.Save(req);
             return Ok(result);
         }
+        [HttpPost]
+        [Route("api/patient/getss")]
+        public async Task<OkObjectResult> Gets([FromBody] LinkGetsPatient req)
+        {
+            var result = await patientService.Gets(req);
+            return Ok(result);
+        }
         [HttpGet]
         [Route("api/patient/gets")]
-        public async Task<OkObjectResult> Gets(int? Gender, int? InfectedPlaceId, int? StatusId, int? InfectionId, int? BackgroundPathology)
+        public async Task<OkObjectResult> Gets()
         {
-            var result = await patientService.Gets(Gender, InfectedPlaceId, StatusId, InfectionId, BackgroundPathology);
+            var result = await patientService.Gets();
             return Ok(result);
         }
     }
 }
+    

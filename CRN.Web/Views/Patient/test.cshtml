@@ -1,0 +1,52 @@
+﻿@model List<CRN.Web.Models.Patient.PatientView>
+<div class="tooltip-content">
+    <div class="modal fade features-modal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <table id="tbStudent" class="table table-bordered mt-2">
+                        <caption style="caption-side:top;" class="text-warning">DANH SÁCH</caption>
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Họ tên</th>
+                                <th>Ngày sinh</th>
+                                <th>Giới tính</th>
+                                <th>Quê quán</th>
+                                <th>Nơi cư trú</th>
+                                <th>Nơi nhiễm bệnh</th>
+                                <th>Nghề nghiệp</th>
+                                <th>Ngày phát hiện bệnh</th>
+                                <th>Mức độ nghiêm trọng</th>
+                                <th>Tình trạng hiện tại</th>
+                                <th>Bệnh lý nền</th>
+                                <th>Tên bệnh lý nền</th>
+                                <th>CMND</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td>@item.Fullname</td>
+                                    <td>@item.Birthday</td>
+                                    <td>@item.GenderName</td>
+                                    <td>@item.Hometown</td>
+                                    <td>@item.Residence</td>
+                                    <td>@item.InfectedPlaceId</td>
+                                    <td>@item.Job</td>
+                                    <td>@item.DetectionDateFormat</td>
+                                    <td>@item.InfectionId</td>
+                                    <td>@item.StatusId</td>
+                                    <td>@item.BackgroundPathology</td>
+                                    <td>@item.PathologicalName</td>
+                                    <td>@item.IdentityCard</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.API", "CRN.API.csproj", "{6B45AFCB-BF2E-4146-8DF2-C94FA7A1AF13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRN.API", "CRN.API.csproj", "{6B45AFCB-BF2E-4146-8DF2-C94FA7A1AF13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.BAL.Implement", "..\CRN.BAL.Implement\CRN.BAL.Implement.csproj", "{6705D8F2-DD6E-4F6F-81D7-C14CC7D3282C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRN.BAL.Implement", "..\CRN.BAL.Implement\CRN.BAL.Implement.csproj", "{6705D8F2-DD6E-4F6F-81D7-C14CC7D3282C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.BAL.Interface", "..\CRN.BAL.Interface\CRN.BAL.Interface.csproj", "{721D351C-C384-48E4-BAE8-0F6765A25F8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRN.BAL.Interface", "..\CRN.BAL.Interface\CRN.BAL.Interface.csproj", "{721D351C-C384-48E4-BAE8-0F6765A25F8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.DAL.Implement", "..\CRN.DAL.Implement\CRN.DAL.Implement.csproj", "{49513B16-1D50-4A2B-AE43-6B93B1B9EC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRN.DAL.Implement", "..\CRN.DAL.Implement\CRN.DAL.Implement.csproj", "{49513B16-1D50-4A2B-AE43-6B93B1B9EC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.DAL.Interface", "..\CRN.DAL.Interface\CRN.DAL.Interface.csproj", "{4A35213E-96A6-4509-8E79-926D6783B617}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRN.DAL.Interface", "..\CRN.DAL.Interface\CRN.DAL.Interface.csproj", "{4A35213E-96A6-4509-8E79-926D6783B617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.Domain", "..\CRN.Domain\CRN.Domain.csproj", "{1DEF2B6D-9E99-4A4E-A732-48E51A151AEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRN.Domain", "..\CRN.Domain\CRN.Domain.csproj", "{1DEF2B6D-9E99-4A4E-A732-48E51A151AEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRN.Web", "..\CRN.Web\CRN.Web.csproj", "{E3DF9DDC-7BF0-44A6-8388-0EF4086376CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{1DEF2B6D-9E99-4A4E-A732-48E51A151AEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DEF2B6D-9E99-4A4E-A732-48E51A151AEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DEF2B6D-9E99-4A4E-A732-48E51A151AEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3DF9DDC-7BF0-44A6-8388-0EF4086376CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DF9DDC-7BF0-44A6-8388-0EF4086376CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DF9DDC-7BF0-44A6-8388-0EF4086376CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DF9DDC-7BF0-44A6-8388-0EF4086376CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

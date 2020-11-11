@@ -2,6 +2,7 @@
 using CRN.DAL.Interface;
 using CRN.Domain.Request;
 using CRN.Domain.Response;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,9 +19,14 @@ namespace CRN.BAL.Implement
             this.patientRepository = patientRepository;
         }
 
-        public async Task<IEnumerable<PatientView>> Gets(int? Gender, int? InfectedPlaceId, int? StatusId, int? InfectionId, int? BackgroundPathology)
+        public async Task<IEnumerable<PatientView>> Gets([FromBody] LinkGetsPatient req)
         {
-            return await patientRepository.Gets(Gender, InfectedPlaceId, StatusId, InfectionId, BackgroundPathology);
+            return await patientRepository.Gets(req);
+        }
+
+        public async Task<IEnumerable<PatientView>> Gets()
+        {
+            return await patientRepository.Gets();
         }
 
         public async Task<SavePatientRes> Save(SavePatientReq req)

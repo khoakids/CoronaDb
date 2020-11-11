@@ -1,0 +1,11 @@
+- Thay chữ Medicate done
+- Xóa NAM TELLUS NEC ENIM TEMPUS done
+NAM TELLUS NEC ENIM TEMPUS done 
+- about us = thông tin chi tiết  
++ số người tử vong
++ số người đang mắc bệnh
++ số người đã khỏi bệnh
+- 3 gạch giống phần trên của trang corona
+- SERVICES : thông tin chi tiết về corona
+- TEAM : mỗi lần click thay đổi bảng hiển thị thống kê
+- Find a doctor today : thống kê số người hết và mắc bệnh 

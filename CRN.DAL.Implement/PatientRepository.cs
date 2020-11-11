@@ -2,9 +2,13 @@
 using CRN.Domain.Request;
 using CRN.Domain.Response;
 using Dapper;
+using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
+using Org.BouncyCastle.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +16,31 @@ namespace CRN.DAL.Implement
 {
     public class PatientRepository :BaseRepository, IPatientRepository
     {
-        public async Task<IEnumerable<PatientView>> Gets(int? Gender, int? InfectedPlaceId, int? StatusId, int? InfectionId, int? BackgroundPathology)
+        public async Task<IEnumerable<PatientView>> Gets([FromBody] LinkGetsPatient req)
+        {
+            IEnumerable<PatientView> result = new List<PatientView>();
+            try
+            {
+                DynamicParameters parameters = new DynamicParameters();
+                parameters.Add("@Gender", (req.Gender == 0 || req.Gender == 1) ? req.Gender : null);
+                parameters.Add("@InfectedPlaceId", req.InfectedPlaceId==0 ? null : req.InfectedPlaceId);
+                parameters.Add("@StatusId", req.StatusId==0 ? null : req.StatusId);
+                parameters.Add("@InfectionId", req.InfectionId==0 ? null : req.InfectionId);
+                parameters.Add("@BackgroundPathology", (req.BackgroundPathology == 0 || req.BackgroundPathology == 1) ? req.BackgroundPathology : null);
+                result = await SqlMapper.QueryAsync<PatientView>(cnn: connection,
+                                                                     sql: "sp_GetPatients",
+                                                                     param: parameters,
+                                                                     commandType: CommandType.StoredProcedure);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                return result;
+            }
+            
+        }
+
+        public async Task<IEnumerable<PatientView>> Gets()
         {
             var result = await SqlMapper.QueryAsync<PatientView>(cnn: connection,
                                                                  sql: "sp_GetPatients",
