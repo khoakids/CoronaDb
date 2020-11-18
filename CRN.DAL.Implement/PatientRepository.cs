@@ -16,6 +16,17 @@ namespace CRN.DAL.Implement
 {
     public class PatientRepository :BaseRepository, IPatientRepository
     {
+        public async Task<PatientView> Get(int patientId)
+        {
+            DynamicParameters parameters = new DynamicParameters();
+            parameters.Add("@PatientId", patientId);
+            var result = await SqlMapper.QueryFirstOrDefaultAsync<PatientView>(cnn: connection
+                                                                                , sql: "sp_GetPatientById"
+                                                                                , param: parameters
+                                                                                , commandType: CommandType.StoredProcedure);
+            return result;
+        }
+
         public async Task<IEnumerable<PatientView>> Gets([FromBody] LinkGetsPatient req)
         {
             IEnumerable<PatientView> result = new List<PatientView>();
@@ -33,7 +44,7 @@ namespace CRN.DAL.Implement
                                                                      commandType: CommandType.StoredProcedure);
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return result;
             }
@@ -56,13 +67,13 @@ namespace CRN.DAL.Implement
                 DynamicParameters parameters = new DynamicParameters();
                 parameters.Add("@PatientId", req.PatientId);
                 parameters.Add("@Fullname", req.Fullname);
-                parameters.Add("@Birthday", req.Birthday);
+                parameters.Add("@Birthday", req.Birthday.ToString());
                 parameters.Add("@Gender", req.Gender);
                 parameters.Add("@Hometown", req.Hometown);
                 parameters.Add("@Residence", req.Residence);
                 parameters.Add("@InfectedPlaceId", req.InfectedPlaceId);
                 parameters.Add("@Job", req.Job);
-                parameters.Add("@DetectionDate", req.DetectionDate);
+                parameters.Add("@DetectionDate", req.DetectionDate.ToString());
                 parameters.Add("@InfectionId", req.InfectionId);
                 parameters.Add("@StatusId", req.StatusId);
                 parameters.Add("@BackgroundPathology", req.BackgroundPathology);

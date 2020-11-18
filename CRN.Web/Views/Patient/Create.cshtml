@@ -1,0 +1,138 @@
+﻿@{
+    Layout = "_LayoutWebUI";
+}
+@model SavePatientReqWeb
+<div>
+    @if (TempData["success"] != null)
+    {
+        <p class="alert alert-success">
+            @TempData["success"]
+        </p>
+    }
+    else if (TempData["error"] != null)
+    { <p class="alert alert-danger">
+            @TempData["error"]
+        </p>
+    }
+</div>
+<div class="container">
+    <form asp-controller="Patient" asp-action="Create" method="post" class="form-horizontal" role="form">
+    <div style="text-align: center"><p class="btn btn-info" style="font-size: 35px; margin-bottom:10px; margin-top:10px" >Tờ khai bệnh nhân</p></div>
+        <div class="form-group">
+            <label asp-for="Fullname" class="col-sm-3 control-label">Họ và Tên</label>
+            <div class="col-sm-9">
+                <input asp-for="Fullname" type="text" placeholder="Họ và tên" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Birthday" class="col-sm-3 control-label">Ngày sinh</label>
+            <div class="col-sm-9">
+                <input type="date" class="form-control" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Giới tính</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" value="@Model.Gender.Equals(true)" asp-for="Gender">Nam
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" value="@Model.Gender.Equals(false)" asp-for="Gender">Nữ
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Hometown" class="col-sm-3 control-label">Quê quán</label>
+            <div class="col-sm-9">
+                <input asp-for="Hometown" type="text" placeholder="Quê quán" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Residence" class="col-sm-3 control-label">Nơi cư trú</label>
+            <div class="col-sm-9">
+                <input asp-for="Residence" type="text" placeholder="Nơi cư trú" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InfectedPlaceId" class="col-sm-3 control-label">Nơi nhiễm bệnh</label>
+            <div class="col-sm-9">
+                <select asp-for="InfectedPlaceId" class="form-control">
+                    @foreach (var item in Model.Provinces)
+                    {
+                        <option value="@item.ProvinceId">@item.ProvinceName</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Job" class="col-sm-3 control-label">Nghề nghiệp</label>
+            <div class="col-sm-9">
+                <input asp-for="Job" type="text" placeholder="Nghề nghiệp" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DetectionDate" class="col-sm-3 control-label">Ngày phát hiện bệnh</label>
+            <div class="col-sm-9">
+                <input asp-for="DetectionDate" type="date" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="InfectionId" class="col-sm-3 control-label">Mức độ nhiễm bệnh</label>
+            <div class="col-sm-9">
+                <select asp-for="InfectionId" class="form-control">
+                    @foreach (var item in Model.Infections)
+                    {
+                        <option value="@item.InfectionId">@item.InfectionLevel</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="StatusId" class="col-sm-3 control-label">Tình trạng hiện tại</label>
+            <div class="col-sm-9">
+                <select asp-for="StatusId" class="form-control">
+                    @foreach (var item in Model.Statuses)
+                    {
+                        <option value="@item.StatusId">@item.StatusName</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Bệnh lý trước khi mắc bệnh</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" value="@Model.BackgroundPathology.Equals(true)" asp-for="BackgroundPathology">Có
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" value="@Model.BackgroundPathology.Equals(false)" asp-for="BackgroundPathology">Không
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="PathologicalName" class="col-sm-3 control-label">Tên bệnh lý trước khi mắc bệnh</label>
+            <div class="col-sm-9">
+                <input asp-for="PathologicalName" type="text" placeholder="Tên bệnh" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="IdentityCard" class="col-sm-3 control-label">Chứng minh Nhân dân</label>
+            <div class="col-sm-9">
+                <input asp-for="IdentityCard" type="number" placeholder="Chứng minh Nhân dân" class="form-control">
+            </div>
+        </div>
+        <div style="text-align: center"><button type="submit" class="btn btn-primary">Xác nhận</button></div>
+    </form> <!-- /form -->
+</div> <!-- ./container -->

@@ -19,8 +19,11 @@ namespace CRN.Domain.Response
         public string DetectionDateFormat { get; set; }
         public int InfectionId { get; set; }
         public int StatusId { get; set; }
-        public bool BackgroundPathology { get; set; }
+        public int BackgroundPathology { get; set; }
         public string PathologicalName { get; set; }
         public string IdentityCard { get; set; }
+        public string ProvinceName { get; set; }
+        public string BackgroundPathologyName { get; set; }
+        public string StatusName { get; set; }
     }
 }

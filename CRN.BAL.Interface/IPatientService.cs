@@ -13,5 +13,6 @@ namespace CRN.BAL.Interface
         Task<SavePatientRes> Save(SavePatientReq req);
         Task<IEnumerable<PatientView>> Gets([FromBody] LinkGetsPatient req);
         Task<IEnumerable<PatientView>> Gets();
+        Task<PatientView> Get(int patientId);
     }
 }

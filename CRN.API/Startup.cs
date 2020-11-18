@@ -33,6 +33,12 @@ namespace CRN.API
             services.AddSwaggerGen();
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IStatusRepository, StatusRepository>();
+            services.AddScoped<IStatusService, StatusService>();
+            services.AddScoped<IProvinceRepository, ProvinceRepository>();
+            services.AddScoped<IProvinceService, ProvinceService>();
+            services.AddScoped<IInfectionRepository, InfectionRepository>();
+            services.AddScoped<IInfectionService, InfectionService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -40,6 +40,13 @@ namespace CRN.API.Controllers
             var result = await patientService.Gets();
             return Ok(result);
         }
+        [HttpGet]
+        [Route("api/patient/get/{patientid}")]
+        public async Task<OkObjectResult> Get(int patientid)
+        {
+            var result = await patientService.Get(patientid);
+            return Ok(result);
+        }    
     }
 }
     

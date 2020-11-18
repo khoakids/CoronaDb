@@ -3,6 +3,7 @@
 }
 @*@model List<PatientView>*@
 @*@inject PatientView context;*@
+<link href="~/web/css/font-awesome.css" type="text/css" rel="stylesheet">
 <div class="jarallax w3ls-about w3ls-section " id="about">
     <div class="container">
         <h3 class="h3-w3l">thống kê dịch bệnh ở Việt Nam</h3>
@@ -47,16 +48,12 @@
                                 <th>Họ tên</th>
                                 <th>Ngày sinh</th>
                                 <th>Giới tính</th>
-                                <th>Quê quán</th>
-                                <th>Nơi cư trú</th>
                                 <th>Nơi nhiễm bệnh</th>
                                 <th>Nghề nghiệp</th>
                                 <th>Ngày phát hiện bệnh</th>
-                                <th>Mức độ nghiêm trọng</th>
                                 <th>Tình trạng hiện tại</th>
                                 <th>Bệnh lý nền</th>
-                                <th>Tên bệnh lý nền</th>
-                                <th>CMND</th>
+                                <th>Thao tác</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,16 +63,12 @@
                                     <td>@item.Fullname</td>
                                     <td>@item.Birthday</td>
                                     <td>@item.GenderName</td>
-                                    <td>@item.Hometown</td>
-                                    <td>@item.Residence</td>
-                                    <td>@item.InfectedPlaceId</td>
+                                    <td>@item.ProvinceName</td>
                                     <td>@item.Job</td>
                                     <td>@item.DetectionDateFormat</td>
-                                    <td>@item.InfectionId</td>
-                                    <td>@item.StatusId</td>
-                                    <td>@item.BackgroundPathology</td>
-                                    <td>@item.PathologicalName</td>
-                                    <td>@item.IdentityCard</td>
+                                    <td>@item.StatusName</td>
+                                    <td>@item.BackgroundPathologyName</td>
+                                    <td><a asp-controller="Patient" asp-action="Edit" asp-route-PatientId="@item.PatientId" class="btn btn-success">Chỉnh sửa</a></td>
                                 </tr>
                             }
                         </tbody>
@@ -97,16 +90,12 @@
                                 <th>Họ tên</th>
                                 <th>Ngày sinh</th>
                                 <th>Giới tính</th>
-                                <th>Quê quán</th>
-                                <th>Nơi cư trú</th>
                                 <th>Nơi nhiễm bệnh</th>
                                 <th>Nghề nghiệp</th>
                                 <th>Ngày phát hiện bệnh</th>
-                                <th>Mức độ nghiêm trọng</th>
                                 <th>Tình trạng hiện tại</th>
                                 <th>Bệnh lý nền</th>
                                 <th>Tên bệnh lý nền</th>
-                                <th>CMND</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -118,16 +107,12 @@
                                         <td>@item.Fullname</td>
                                         <td>@item.Birthday</td>
                                         <td>@item.GenderName</td>
-                                        <td>@item.Hometown</td>
-                                        <td>@item.Residence</td>
-                                        <td>@item.InfectedPlaceId</td>
+                                        <td>@item.ProvinceName</td>
                                         <td>@item.Job</td>
                                         <td>@item.DetectionDateFormat</td>
-                                        <td>@item.InfectionId</td>
-                                        <td>@item.StatusId</td>
-                                        <td>@item.BackgroundPathology</td>
+                                        <td>@item.StatusName</td>
+                                        <td>@item.BackgroundPathologyName</td>
                                         <td>@item.PathologicalName</td>
-                                        <td>@item.IdentityCard</td>
                                     </tr>
                                 }
                             }
@@ -150,16 +135,12 @@
                                 <th>Họ tên</th>
                                 <th>Ngày sinh</th>
                                 <th>Giới tính</th>
-                                <th>Quê quán</th>
-                                <th>Nơi cư trú</th>
                                 <th>Nơi nhiễm bệnh</th>
                                 <th>Nghề nghiệp</th>
                                 <th>Ngày phát hiện bệnh</th>
-                                <th>Mức độ nghiêm trọng</th>
                                 <th>Tình trạng hiện tại</th>
                                 <th>Bệnh lý nền</th>
                                 <th>Tên bệnh lý nền</th>
-                                <th>CMND</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -171,16 +152,12 @@
                                         <td>@item.Fullname</td>
                                         <td>@item.Birthday</td>
                                         <td>@item.GenderName</td>
-                                        <td>@item.Hometown</td>
-                                        <td>@item.Residence</td>
-                                        <td>@item.InfectedPlaceId</td>
+                                        <td>@item.ProvinceName</td>
                                         <td>@item.Job</td>
                                         <td>@item.DetectionDateFormat</td>
-                                        <td>@item.InfectionId</td>
-                                        <td>@item.StatusId</td>
-                                        <td>@item.BackgroundPathology</td>
-                                        <td>@item.PathologicalName</td>
-                                        <td>@item.IdentityCard</td>
+                                        <td>@item.StatusName</td>
+                                        <td>@item.BackgroundPathologyName</td>
+                                        <td>@item.PathologicalName</td> 
                                     </tr>
                                 }
                             }

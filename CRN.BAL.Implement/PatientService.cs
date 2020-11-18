@@ -19,6 +19,11 @@ namespace CRN.BAL.Implement
             this.patientRepository = patientRepository;
         }
 
+        public async Task<PatientView> Get(int patientId)
+        {
+            return await patientRepository.Get(patientId);
+        }
+
         public async Task<IEnumerable<PatientView>> Gets([FromBody] LinkGetsPatient req)
         {
             return await patientRepository.Gets(req);
